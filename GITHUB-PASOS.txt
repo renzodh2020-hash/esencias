@@ -1,0 +1,48 @@
+CROP ROUTE 1.3.0 — COMPILAR MEDIANTE GITHUB
+
+ARCHIVOS QUE DEBES REEMPLAZAR EN TU REPOSITORIO (5):
+1) src/main/java/com/nakero/croproute/CropRouteClient.java
+2) src/main/java/com/nakero/croproute/RouteManager.java
+3) src/main/java/com/nakero/croproute/RouteSelectorScreen.java
+4) gradle.properties
+5) .github/workflows/build.yml
+
+Como reemplazarlos desde la web de GitHub:
+- Abre cada ruta anterior dentro de tu repositorio.
+- Pulsa Add file > Upload files para subir el archivo de reemplazo en esa MISMA carpeta.
+  Tambien puedes abrir el archivo, usar el editor y sustituir su contenido.
+- Guarda los cambios con Commit changes.
+- Abre Actions > Build Crop Route > Run workflow.
+- En una ejecucion exitosa, descarga el artefacto CropRoute-1.20.4.
+- Extrae crop-route-1.3.0.jar y colocarlo en tu carpeta mods.
+- Retira cualquier otro .jar previo de Crop Route de mods.
+
+CONTROLES:
+J = grabar | K = seleccionar rutas | O = recorrido normal con temporizador
+P = iniciar/detener ciclo infinito, sin temporizador de O.
+
+P REALIZA:
+RTAFK: vueltas configuradas (40 predeterminadas) -> pausa aleatoria 05:42-06:18
+verruga11: vueltas configuradas (40 predeterminadas) -> pausa aleatoria 05:42-06:18
+verruga1: vueltas configuradas (40 predeterminadas) -> pausa aleatoria 20:42-21:18
+Y vuelve a RTAFK para repetir todo indefinidamente.
+
+MENU K:
+- Temporizador: solo para O, se comunica por chat cuando se cambia.
+- Vueltas P: edita por separado el total de vueltas de las tres rutas.
+- Pausas P: edita rangos minimo y maximo en formato MM:SS para cada ruta.
+- El mod guarda las vueltas y pausas P en config/crop-route/p-settings.json.
+- Al guardar vueltas/pausas P aparece un aviso en el chat.
+- Los cambios de P se aplican al volver a iniciar P (no durante un ciclo ya activo).
+
+CONTEO DE VUELTAS: radio horizontal de 2 bloques alrededor del punto de referencia.
+Para impedir conteos dobles, se exige alejarse previamente 12 bloques del punto.
+RTAFK y verruga11: X 5237, Z 4621; verruga1: X 5292, Z 4796.
+No exige completar 75% de la ruta y no envía /is go ni /back.
+La detección de anuncios/eventos de competencias queda eliminada.
+
+NOTA: EL ZIP INCLUYE CODIGO FUENTE; NO ES UN .JAR COMPILADO.
+No reemplacen routes.json: las rutas ya guardadas se mantienen en Minecraft.
+Antes de probar crea una copia de seguridad de config/crop-route/routes.json.
+Esta version paso compilacion Java con dobles de prueba y pruebas de logica,
+pero TODAVIA no se ha compilado con dependencias reales de Fabric ni probado en juego.
